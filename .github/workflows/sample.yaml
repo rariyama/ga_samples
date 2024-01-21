@@ -23,3 +23,27 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: comp1
+        id: comp1
+        if: ${{ github.event.inputs.bool_input1 == 'true' }}
+        run: 
+          echo comp1
+
+      - name: comp2
+        id: comp2
+        if: ${{ github.event.inputs.bool_input1 == 'false' }}
+        run: 
+          echo comp2
+
+      - name: comp3
+        id: comp3
+        if: ${{ github.event.inputs.bool_input1 == 'true' && github.event.inputs.bool_input1 == 'true' }}
+        run: 
+          echo comp3
+
+      - name: comp4
+        id: comp4
+        if: ${{ github.event.inputs.bool_input1 == 'true' && github.event.inputs.bool_input1 == 'false' }}
+        run: 
+          echo comp4

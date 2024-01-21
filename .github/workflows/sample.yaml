@@ -1,0 +1,25 @@
+name: Sample
+
+on:
+  workflow_dispatch:
+    inputs:
+      bool_input1:
+        type: boolean
+        description: 'bool_input1'
+        required: true
+      bool_input1:
+        type: boolean
+        description: 'bool_input2'
+        required: true
+
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    permissions:
+        id-token: write
+        contents: read
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4

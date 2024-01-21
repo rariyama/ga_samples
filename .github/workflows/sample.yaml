@@ -7,7 +7,7 @@ on:
         type: boolean
         description: 'bool_input1'
         required: true
-      bool_input1:
+      bool_input2:
         type: boolean
         description: 'bool_input2'
         required: true
@@ -23,3 +23,51 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: comp1
+        id: comp1
+        if: ${{ github.event.inputs.bool_input1 == 'true' }}
+        run: 
+          echo ${{ github.event.inputs.bool_input1 }}
+          echo ${{ github.event.inputs.bool_input2 }}
+          echo comp1
+
+      - name: comp2
+        id: comp2
+        if: ${{ github.event.inputs.bool_input1 == 'false' }}
+        run: 
+          echo ${{ github.event.inputs.bool_input1 }}
+          echo ${{ github.event.inputs.bool_input2 }}
+          echo comp2
+
+      - name: comp3
+        id: comp3
+        if: ${{ github.event.inputs.bool_input1 == 'true' && github.event.inputs.bool_input1 == 'true' }}
+        run: 
+          echo ${{ github.event.inputs.bool_input1 }}
+          echo ${{ github.event.inputs.bool_input2 }}
+          echo comp3
+
+      - name: comp4
+        id: comp4
+        if: ${{ github.event.inputs.bool_input1 == 'true' && github.event.inputs.bool_input1 == 'false' }}
+        run: 
+          echo ${{ github.event.inputs.bool_input1 }}
+          echo ${{ github.event.inputs.bool_input2 }}
+          echo comp4
+
+      - name: comp5
+        id: comp5
+        if: ${{ github.event.inputs.bool_input1 == 'false' && github.event.inputs.bool_input1 == 'true' }}
+        run: 
+          echo ${{ github.event.inputs.bool_input1 }}
+          echo ${{ github.event.inputs.bool_input2 }}
+          echo comp5
+
+      - name: comp6
+        id: comp6
+        if: ${{ github.event.inputs.bool_input1 == 'false' && github.event.inputs.bool_input1 == 'false' }}
+        run: 
+          echo ${{ github.event.inputs.bool_input1 }}
+          echo ${{ github.event.inputs.bool_input2 }}
+          echo comp6

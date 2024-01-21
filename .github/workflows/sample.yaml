@@ -55,3 +55,19 @@ jobs:
           echo ${{ github.event.inputs.bool_input1 }}
           echo ${{ github.event.inputs.bool_input2 }}
           echo comp4
+
+      - name: comp5
+        id: comp5
+        if: ${{ github.event.inputs.bool_input1 == 'false' && github.event.inputs.bool_input1 == 'true' }}
+        run: 
+          echo ${{ github.event.inputs.bool_input1 }}
+          echo ${{ github.event.inputs.bool_input2 }}
+          echo comp5
+
+      - name: comp6
+        id: comp6
+        if: ${{ github.event.inputs.bool_input1 == 'false' && github.event.inputs.bool_input1 == 'false' }}
+        run: 
+          echo ${{ github.event.inputs.bool_input1 }}
+          echo ${{ github.event.inputs.bool_input2 }}
+          echo comp6

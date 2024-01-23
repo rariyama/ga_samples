@@ -75,6 +75,7 @@ jobs:
       - name: Get Tag
         id: get-tag
         run: 
+          git fetch --prune --unshallow
           echo "TAG_NAME=$(git tag --sort=creatordate | tail -n 1)" >> $GITHUB_ENV
 
       - name: Echo Tag

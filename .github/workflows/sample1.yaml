@@ -18,7 +18,12 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      
+
+      - uses: actions/github-script@v6
+        with:
+          script: |
+            core.info(JSON.stringify(context.payload))
+
       - name: test
         id: test
         run: |

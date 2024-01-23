@@ -21,6 +21,8 @@ jobs:
       - name: test
         id: test
         run: |
+          echo ${{ github.event.repository }}
           echo ${{ github.repository.git_tags_url }}
           echo ${{ github.repository.tags_url }}
-          
+          echo ${{ github.repository }}
+          echo ${{ github.event.workflow_run }}

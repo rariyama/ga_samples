@@ -71,3 +71,14 @@ jobs:
           echo ${{ github.event.inputs.bool_input1 }}
           echo ${{ github.event.inputs.bool_input2 }}
           echo comp6
+
+      - name: Get Tag
+        id: get-tag
+        run: 
+          echo "TAG_NAME=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+
+      - name: Echo Tag
+        id: echo-tag
+        run: 
+          echo "$(git tag --sort=creatordate | tail -n 1)" > CUR_TAG
+          echo $CUR_TAG

@@ -2,8 +2,7 @@ name: Sample1
 
 on:
   workflow_run:
-    worflows:
-      - Sample
+    workflows: [Sample]
     types:
       - completed
 

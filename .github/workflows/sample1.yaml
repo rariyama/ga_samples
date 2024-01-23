@@ -1,0 +1,27 @@
+name: Sample1
+
+on:
+  workflow_run:
+    worflows:
+      - Sample
+    types:
+      - completed
+
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    permissions:
+        id-token: write
+        contents: read
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: test
+        id: test
+        run: |
+          echo ${{ github.repository.git_tags_url }}
+          echo ${{ github.repository.tags_url }}
+          

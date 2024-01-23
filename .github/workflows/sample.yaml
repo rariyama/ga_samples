@@ -75,10 +75,10 @@ jobs:
       - name: Get Tag
         id: get-tag
         run: 
-          echo "TAG_NAME=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+          echo ${{ github.event }}
+          echo "TAG_NAME=$(git tag --sort=creatordate | tail -n 1)" >> $GITHUB_ENV
 
       - name: Echo Tag
         id: echo-tag
         run: 
-          echo "$(git tag --sort=creatordate | tail -n 1)" > CUR_TAG
-          echo $CUR_TAG
+          echo ${{ env.TAG_NAME }}

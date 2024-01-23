@@ -81,4 +81,4 @@ jobs:
       - name: Echo Tag
         id: echo-tag
         run: 
-          echo ${{ env.TAG_NAME }}
+          echo "sample_output=test" >> $GITHUB_OUTPUT

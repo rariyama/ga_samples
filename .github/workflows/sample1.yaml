@@ -23,6 +23,8 @@ jobs:
         id: test
         run: |
           echo ${{ github.event.repository }}
+          echo ${{ github.event.repository.git_tags_url }}
+          echo ${{ github.event.repository.tags_url }}
           echo ${{ github.repository.git_tags_url }}
           echo ${{ github.repository.tags_url }}
           echo ${{ github.repository }}

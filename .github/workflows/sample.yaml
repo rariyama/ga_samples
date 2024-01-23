@@ -76,3 +76,8 @@ jobs:
         id: get-tag
         run: 
           echo "TAG_NAME=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+
+      - name: Echo Tag
+        id: echo-tag
+        run: 
+          echo ${{ env.TAG_NAME }}

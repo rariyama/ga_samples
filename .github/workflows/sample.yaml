@@ -80,4 +80,5 @@ jobs:
       - name: Echo Tag
         id: echo-tag
         run: 
-          echo ${{ env.TAG_NAME }}
+          echo "$(git tag --sort=creatordate | tail -n 1)" > CUR_TAG
+          echo $CUR_TAG

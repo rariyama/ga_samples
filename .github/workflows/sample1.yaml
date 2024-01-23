@@ -18,11 +18,18 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      
+
+      - uses: actions/github-script@v6
+        with:
+          script: |
+            core.info(JSON.stringify(context.payload))
+
       - name: test
         id: test
         run: |
           echo ${{ github.event.repository }}
+          echo ${{ github.event.repository.git_tags_url }}
+          echo ${{ github.event.repository.tags_url }}
           echo ${{ github.repository.git_tags_url }}
           echo ${{ github.repository.tags_url }}
           echo ${{ github.repository }}

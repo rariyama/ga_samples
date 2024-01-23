@@ -71,3 +71,8 @@ jobs:
           echo ${{ github.event.inputs.bool_input1 }}
           echo ${{ github.event.inputs.bool_input2 }}
           echo comp6
+
+      - name: Get Tag
+        id: get-tag
+        run: 
+          echo "TAG_NAME=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV

@@ -29,3 +29,8 @@ jobs:
         run: 
           version=$(echo ${GITHUB_REF##*/} | sed 's/^v//')
           echo "sample_output=$version" >> $GITHUB_ENV
+
+      - name: Echo Tag1
+        id: echo-tag1
+        run: 
+          echo ${{ env.sample_output }}

@@ -23,3 +23,9 @@ jobs:
           echo ${{ github.event.workflow_run }}
           echo $GITHUB_REF
           echo ${GITHUB_REF##*/}
+
+      - name: Echo Tag
+        id: echo-tag
+        run: 
+          version=$(echo ${GITHUB_REF##*/} | sed 's/^v//')
+          echo "sample_output=$version" >> $GITHUB_ENV

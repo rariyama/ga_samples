@@ -77,10 +77,4 @@ jobs:
         run: 
           echo ${{ github.event }}
           echo "TAG_NAME=$(git tag --sort=creatordate | tail -n 1)" >> $GITHUB_ENV
-
-      - name: Echo Tag
-        id: echo-tag
-        run: 
-          echo $GITHUB_REF
-          echo ${GITHUB_REF##*/}
-          echo "sample_output=test" >> $GITHUB_OUTPUT
+          
